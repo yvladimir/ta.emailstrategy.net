@@ -76,6 +76,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->session->open();
+
         $visit = new Visit();
         $visit->load([
             'Visit' => [
@@ -88,6 +90,9 @@ class SiteController extends Controller
                 'utm_content' => Yii::$app->request->get('utm_content')
             ]
         ]);
+
+        echo "session";
+        echo Yii::$app->getSession()->getId();
 
         if (!Visit::findOne(['session' => $visit->session])) {
             $visit->save();
