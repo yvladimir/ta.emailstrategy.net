@@ -8,6 +8,7 @@ use yii\widgets\ListView;
 
 ?>
 
+<? if($wallets): ?>
 <table class="table table-striped table-bordered">
     <tr>
         <th>Wallet</th>
@@ -20,3 +21,6 @@ use yii\widgets\ListView;
     </tr>
 <? endforeach; ?>
 </table>
+<? else: ?>
+    <div class="alert alert-warning" role="alert">No wallets found.</div>
+<? endif; ?>
